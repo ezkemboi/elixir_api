@@ -8,4 +8,14 @@ defmodule ElixirApiWeb.Router do
   scope "/api", ElixirApiWeb do
     pipe_through :api
   end
+
+  # allow handling of html resources
+  pipeline :browser do
+    plug(:accepts, ["html"])
+  end
+
+  scope "/", ElixirApiWeb do
+    pipe_through :browser
+    get "/", DefaultController, :index
+  end
 end

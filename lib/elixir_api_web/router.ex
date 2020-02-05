@@ -7,6 +7,7 @@ defmodule ElixirApiWeb.Router do
 
   scope "/api", ElixirApiWeb do
     pipe_through :api
+    resources "/business", BusinessController, except: [:new, :edit]
   end
 
   # allow handling of html resources

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ezkemboi/elixir_api.svg?branch=master)](https://travis-ci.org/ezkemboi/elixir_api)
+[![Coverage Status](https://coveralls.io/repos/github/ezkemboi/elixir_api/badge.svg?branch=master)](https://coveralls.io/github/ezkemboi/elixir_api?branch=master)
 # ElixirApi
 
 To start your Phoenix server:

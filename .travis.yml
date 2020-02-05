@@ -1,0 +1,20 @@
+language: elixir
+elixir: 
+  - 1.9
+otp_release: 
+  - 18.2
+before_script:
+  - psql -c 'CREATE DATABASE elixir_api_test;' -U postgres
+script: 
+  - "MIX_ENV=test mix do deps.get, test && mix compile && mix coveralls.travis"
+services:
+  - postgresql
+addons:
+  postgresql: "12"
+  apt: 
+    packages:
+      - postgresql-12
+      - postgresql-client-12
+env:
+  global:
+    - PGPORT=5433

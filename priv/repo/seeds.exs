@@ -13,3 +13,7 @@ alias ElixirApi.Repo
 alias ElixirApi.Directory.Business
 Repo.insert! %Business{name: "Semabu", description: "Dealing with classified marketing", tag: "marketing"}
 Repo.insert! %Business{name: "Andela", description: "Offering engineering as a service", tag: "engineering"}
+
+# add user details here
+alias ElixirApi.Accounts.User
+Repo.insert! %User{email: "test@test.com", password: "password"}

@@ -41,6 +41,9 @@ defmodule ElixirApi.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:guardian, "~> 2.0"},
+      {:comeonin, "~> 5.0"},
+      {:bcrypt_elixir, "~> 2.1"},
       {:excoveralls, "~> 0.10", only: :test}
     ]
   end

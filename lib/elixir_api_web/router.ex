@@ -8,6 +8,8 @@ defmodule ElixirApiWeb.Router do
   scope "/api", ElixirApiWeb do
     pipe_through :api
     resources "/business", BusinessController, except: [:new, :edit]
+    post "/users/signup", UserController, :create
+    post "/users/signin", UserController, :signin
   end
 
   # allow handling of html resources

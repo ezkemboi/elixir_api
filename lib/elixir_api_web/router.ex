@@ -7,7 +7,6 @@ defmodule ElixirApiWeb.Router do
 
   scope "/api", ElixirApiWeb do
     pipe_through :api
-    resources "/business", BusinessController, except: [:new, :edit]
     post "/users/signup", UserController, :create
     post "/users/signin", UserController, :signin
   end
@@ -20,5 +19,14 @@ defmodule ElixirApiWeb.Router do
   scope "/", ElixirApiWeb do
     pipe_through :browser
     get "/", DefaultController, :index
+  end
+
+  pipeline :auth do
+    plug ElixirApiWeb.Auth.Pipeline
+  end
+
+  scope "/api", ElixirApiWeb do
+    pipe_through [:api, :auth] 
+    resources "/business", BusinessController, except: [:new, :edit]
   end
 end

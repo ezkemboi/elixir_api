@@ -56,6 +56,18 @@ defmodule ElixirApi.Accounts do
   end
 
   @doc """
+  Get user by email.
+  """
+  def get_by_email(email) do
+    case Repo.get_by(User, email: email) do
+      nil -> 
+        {:error, :not_found}
+      user -> 
+        {:ok, user}
+    end
+  end
+
+  @doc """
   Updates a user.
 
   ## Examples

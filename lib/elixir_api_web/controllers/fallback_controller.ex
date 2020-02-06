@@ -19,4 +19,10 @@ defmodule ElixirApiWeb.FallbackController do
     |> put_view(ElixirApiWeb.ErrorView)
     |> render(:"404")
   end
+
+  def call(conn, {:error, :unauthorized}) do
+    conn
+    |> put_status(:unauthorized)
+    |> render(ElixirApiWeb.ErrorView, :"401")
+  end
 end
